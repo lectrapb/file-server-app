@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.app.back.domain.usecase.filestorage.upload.UploadFileUseCaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-04T01:41:05" hostname="ingeniero-lubuntu20" time="0.661">
+  <properties/>
+  <testcase name="upload_use_case_ok_test()" classname="com.app.back.domain.usecase.filestorage.upload.UploadFileUseCaseTest" time="0.661"/>
+  <system-out><![CDATA[20:41:05.754 [Test worker] DEBUG reactor.util.Loggers - Using Slf4j logging framework
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

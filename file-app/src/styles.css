@@ -1,0 +1,13 @@
+html{
+    background-color: #1c1c1c;
+    position: relative;
+    min-height: 100%;
+  }
+.basic{
+    background-color: #1c1c1c;
+    /* background-color: white; */
+}
+
+.wrap-footer{
+    padding-bottom: 60px;
+}
