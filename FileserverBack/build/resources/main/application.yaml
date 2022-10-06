@@ -1,0 +1,17 @@
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      auto-index-creation: true
+      host: 74.207.224.64
+      port: 27017
+      username: devuser
+      password: devpassword
+      database: springboot_file_server
+
+logging:
+  level:
+    org:
+      mongodb:
+        core:
+          MongoTemplate: debug

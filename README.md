@@ -1,2 +1,2 @@
 # File-server-app
-Project to storage files and play video; It is developed in java and Angular. 
+Project to store files and play the videos; It is developed in java and Angular.
