@@ -1,4 +1,4 @@
-<div class="background-modal-image bg-dark"
+<div class="background-modal-image "
     [class.hide-video]="playVideoService.hideVideoModal">
     <div class="modal fade show" 
          id="videoPlayerModal" tabindex="-1" 
@@ -6,9 +6,11 @@
          aria-hidden="false" style="display: block;">
 
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content bg-dark">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="videoPlayerModalLabel">Play Video </h5>
+                    <h5 class="modal-title text-white" id="videoPlayerModalLabel">
+                      <img src="../../../assets/Netflix-new-icon.png" width="10%" height="10%" alt="">  Play Video 
+                    </h5>
                     <button type="button" 
                             class="btn-close" 
                             data-bs-dismiss="modal"
