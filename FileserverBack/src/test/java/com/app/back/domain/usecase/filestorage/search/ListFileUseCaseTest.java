@@ -1,7 +1,7 @@
 package com.app.back.domain.usecase.filestorage.search;
 
-import com.app.back.domain.model.fileStorage.FileStorage;
 import com.app.back.domain.model.fileStorage.gateways.FileRepositoryService;
+import com.app.back.domain.usecase.filestorage.domain.FileStorageMother;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
@@ -34,10 +34,10 @@ class ListFileUseCaseTest {
     @Test
     void list_file_use_case_ok_test(){
 
-         when(fileRepository.findAll()).thenReturn(Flux.just(new FileStorage(), new FileStorage()));
+         when(fileRepository.findAll()).thenReturn(FileStorageMother.fileOkFlux());
          useCase.list()
                  .as(StepVerifier:: create)
-                 .expectNextCount(2)
+                 .expectNextCount(1)
                  .verifyComplete();
 
     }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.back.domain.usecase.filestorage.playVideo.PlayVideoUseCaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-06T00:25:52" hostname="ingeniero-lubuntu20" time="0.595">
+<testsuite name="com.app.back.domain.usecase.filestorage.playVideo.PlayVideoUseCaseTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-11-15T02:31:36" hostname="ingeniero-lubuntu20" time="0.145">
   <properties/>
-  <testcase name="play_video_use_case_ok_test()" classname="com.app.back.domain.usecase.filestorage.playVideo.PlayVideoUseCaseTest" time="0.595"/>
-  <system-out><![CDATA[19:25:52.621 [Test worker] DEBUG reactor.util.Loggers - Using Slf4j logging framework
-]]></system-out>
+  <testcase name="play_video_use_case_null_test()" classname="com.app.back.domain.usecase.filestorage.playVideo.PlayVideoUseCaseTest" time="0.119"/>
+  <testcase name="play_video_use_case_ok_test()" classname="com.app.back.domain.usecase.filestorage.playVideo.PlayVideoUseCaseTest" time="0.021"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

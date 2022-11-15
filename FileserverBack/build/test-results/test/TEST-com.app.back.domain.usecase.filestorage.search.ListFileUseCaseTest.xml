@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.app.back.domain.usecase.filestorage.search.ListFileUseCaseTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-11-15T02:31:36" hostname="ingeniero-lubuntu20" time="0.015">
+  <properties/>
+  <testcase name="list_file_use_case_ok_test()" classname="com.app.back.domain.usecase.filestorage.search.ListFileUseCaseTest" time="0.007"/>
+  <testcase name="list_file_use_case_null_test()" classname="com.app.back.domain.usecase.filestorage.search.ListFileUseCaseTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

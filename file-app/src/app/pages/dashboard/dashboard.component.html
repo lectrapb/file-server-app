@@ -1,4 +1,5 @@
 <app-carousel></app-carousel>
+<app-video-player *ngIf="videoName !== 'close'" [nameVideo] = "videoName" ></app-video-player>
 <br>
 <div class="row">
     <div class="col-12">
@@ -10,22 +11,23 @@
     </div>
 </div>
 <br>
-<div class="row">
+<div *ngIf="loading" class="row">
     <div class="col-12">
         <div class="alert alert-info text-center">
             <h4 class="alert-heading">Loading</h4>
             <i class="fa fa-spin fa-refresh fa-2x"></i>
-            <p class="mb-0">Please wait</p>
+            <p class="mb-0">Please wait ...</p>
         </div>
     </div>
 </div>
 <div class="card bg-dark text-white border-primary">
     <div class="card-header">
-        Total files 0
+        Total files {{listFiles.length}}
     </div>
     <div class="card-body">
         <div>
-            <button class="btn btn-primary">Load</button>
+            <button class="btn btn-primary"
+                    (click)="modalFile.openModal()">Load</button>
         </div>
         <br>
         <div class="table-responsive">
@@ -40,12 +42,41 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr *ngFor="let file of listFiles">
+                        <td class="text-center"> 
+                            <a *ngIf="file.type ==='video/mp4'" 
+                               (click)="openModal(file.name)" 
+                                class="cursor">
+                                <i class="fa fa-camera-retro" aria-hidden="true"></i>
+                            </a>        
+                            <img *ngIf="file.type ==='image/png' || 
+                                        file.type ==='image/jpeg'"
+                                 [src]="previewFiles(file.name)"
+                                 class="img-thumbnail rounded"
+                                 style="width: 45px;" >
+                           <a *ngIf="file.type !=='image/png'  && 
+                                     file.type !=='image/jpeg' &&
+                                     file.type !=='video/mp4'" 
+                                 data-toogle="tooltip">
+                              <i class="fa fa-file-archive" aria-hidden="true"></i> 
+                           </a> 
+                           
+                        </td>
+                        <td>{{file.name}}</td>
+                        <td>{{file.type}}</td>
+                        <td>{{file.createAt | date: 'dd/MM/YYYY'}}</td>
+                        <td class="text-center">
+                          <a href="{{file.content}}"
+                             data-toogle="tooltip"
+                             data-original-title="Download">
+                             <i class="fa fa-arrow-down me-3" aria-hidden="true"></i></a>
+                          <a (click)="deleteFile(file)"
+                             class="cursor"
+                             data-toogle="tooltip"
+                             data-original-title="Delete">
+                             <i class="fa fa-close text-danger " aria-hidden="true"></i></a>   
+
+                        </td>
                     </tr>
                 </tbody>
             </table>

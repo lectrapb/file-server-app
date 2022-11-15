@@ -5,7 +5,8 @@ import { PageComponent } from './page.component';
 
 
 const routes: Routes = [
-  {path:'dashboard', component:PageComponent}
+  {path:'dashboard', component:PageComponent}, 
+  {path: '**', pathMatch:'full', redirectTo:'/dashboard'}
 ];
 
 @NgModule({

@@ -1,0 +1,43 @@
+<div class="background-modal-image bg-dark"
+    [class.hide-video]="playVideoService.hideVideoModal">
+    <div class="modal fade show" 
+         id="videoPlayerModal" tabindex="-1" 
+         role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="false" style="display: block;">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="videoPlayerModalLabel">Play Video </h5>
+                    <button type="button" 
+                            class="btn-close" 
+                            data-bs-dismiss="modal"
+                            (click)="closeModal()" 
+                            aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <vg-player>
+                    
+                        <video  [src]="getUrlVideo()" 
+                                width="720px" 
+                                height="480px" 
+                                controls muted>
+                        </video>
+                                           
+                    </vg-player>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" 
+                        class="btn btn-secondary"
+                        (click)="closeModal()" 
+                        data-bs-dismiss="modal">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

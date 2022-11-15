@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageComponent } from './page.component';
+import { ComponentsModule } from '../components/components.module';
 
 
 
@@ -19,7 +20,8 @@ import { PageComponent } from './page.component';
     CommonModule,
     RouterModule,
     PagesRoutingModule,
-    SharedModule
+    SharedModule,
+    ComponentsModule
   ]
 })
 export class PagesModule { }

@@ -11,3 +11,15 @@ html{
 .wrap-footer{
     padding-bottom: 60px;
 }
+
+.roundImg{
+    border-radius: 50%;
+    width: 10%;
+    height: 10%;
+   
+}
+
+.cursor{
+    cursor: pointer;
+}
+
