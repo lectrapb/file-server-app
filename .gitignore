@@ -13,7 +13,7 @@ file-app/!.vscode/launch.json
 file-app/!.vscode/extensions.json
 file-app/.history/*
 ### IDEA #####
-.idea
+FileserverBack.idea
 FileserverBack/.idea
 FileserverBack/*.iws
 FileserverBack/*.iml
@@ -24,3 +24,5 @@ FileserverBack/!.mvn/wrapper/maven-wrapper.jar
 FileserverBack/!**/src/main/**/target/
 FileserverBack/!**/src/test/**/target/
 FileserverBack/**/src/main/resources/application.yaml
+FileserverBack/build
+

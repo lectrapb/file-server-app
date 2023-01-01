@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.app.back.domain.usecase.filestorage.upload.UploadFileUseCaseTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-11-15T02:31:36" hostname="ingeniero-lubuntu20" time="0.01">
-  <properties/>
-  <testcase name="upload_use_case_ok_test()" classname="com.app.back.domain.usecase.filestorage.upload.UploadFileUseCaseTest" time="0.006"/>
-  <testcase name="upload_use_case_null_test()" classname="com.app.back.domain.usecase.filestorage.upload.UploadFileUseCaseTest" time="0.003"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

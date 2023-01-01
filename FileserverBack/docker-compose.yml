@@ -1,0 +1,20 @@
+version: '3.7' # specify docker-compose version
+
+services:
+  backend: #name backend service spring boot app
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    restart: on-failure
+    healthcheck:
+      test: curl -m 5 --silent --fail --request GET http://localhost:8080/actuator/health | jq --exit-status -n 'inputs | if has("status") then .status=="UP" else false end' > /dev/null || exit 1
+      interval: 10s
+      timeout: 2s
+      retries: 10
+    networks:
+      - file-server-net
+networks:
+  file-server-net:
+    driver: bridge

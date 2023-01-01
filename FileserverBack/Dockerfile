@@ -1,0 +1,13 @@
+# Build stage
+FROM gradle:7.5.0-alpine AS build
+WORKDIR /home/gradle/src
+COPY . /home/gradle/src
+RUN  gradle build -x test --no-daemon   
+
+#Package stage
+FROM openjdk:17.0.1-jdk-slim
+ARG JAR_NAME="FileserverBack-1.0.0"
+WORKDIR /home/gradle/src
+EXPOSE ${HTTP_PORT}
+COPY --from=build /home/gradle/src/build/libs/${JAR_NAME}.jar ./file-server-back.jar
+ENTRYPOINT ["java","-jar", "./file-server-back.jar"]
