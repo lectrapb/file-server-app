@@ -1,0 +1,20 @@
+version: '3.7' # specify docker-compose version
+
+services:
+ frontend: #name front end app0
+    build: 
+      context: .
+      args:
+        PROFILE: prod
+    ports:
+      - "4200:80"
+    restart: on-failure
+    networks:
+      - file-server-net
+# networks:
+#   login-token-net:
+#     driver: bridge
+networks:
+  file-server-net:
+    name: file-server-test
+    external: true

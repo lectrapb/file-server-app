@@ -1,10 +1,20 @@
+#GLOBAL
+mongodata
+#VS CODE - VSCODE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
 # compiled output
 file-app/dist
 file-app/node_modules
 file-app/tmp
 file-app/out-tsc
 # IDEs and editors
-### VS Code ###
+### (FRONT)VS Code ###
 file-app/.vscode/
 file-app/.vscode/*
 file-app/!.vscode/settings.json
@@ -12,8 +22,8 @@ file-app/!.vscode/tasks.json
 file-app/!.vscode/launch.json
 file-app/!.vscode/extensions.json
 file-app/.history/*
-### IDEA #####
-FileserverBack.idea
+### IDEA (BACK - JAVA)#####
+FileserverBack/.gradle
 FileserverBack/.idea
 FileserverBack/*.iws
 FileserverBack/*.iml

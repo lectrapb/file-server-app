@@ -4,9 +4,9 @@ spring:
       authentication-database: admin
       auto-index-creation: true
       host: localhost
-      port: 27017
-      username: user
-      password: password
+      port: 8001
+      username: devuser
+      password: devpassword
       database: springboot_file_server
 
 logging:

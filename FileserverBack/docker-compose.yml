@@ -6,7 +6,8 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_PROFILES_ACTIVE=prod
+      - MONGO_HOST=mongo_db
     restart: on-failure
     healthcheck:
       test: curl -m 5 --silent --fail --request GET http://localhost:8080/actuator/health | jq --exit-status -n 'inputs | if has("status") then .status=="UP" else false end' > /dev/null || exit 1
@@ -18,3 +19,8 @@ services:
 networks:
   file-server-net:
     driver: bridge
+   
+# networks:
+#   file-server-net:
+#     name: file-server-test
+#     external: true

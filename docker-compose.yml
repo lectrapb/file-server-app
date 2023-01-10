@@ -1,0 +1,61 @@
+version: '3.7' # specify docker-compose version
+
+services:
+  mongo_db: #database 
+    container_name:  mongo_db
+    image: mongo:5.0.14
+    hostname: mongo_db
+    restart: always
+    environment: 
+      TZ: "America/Bogota" #Time zone south america
+      MONGO_INITDB_ROOT_USERNAME: "devuser"
+      MONGO_INITDB_ROOT_PASSWORD: "devpassword"
+    volumes:
+      - ./mongodata:/data/db
+    ports:
+      - 27017:27017 
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo mongo_db:27017/test --quiet
+      #test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+    networks:
+      - file-server-net
+  backend: #name backend service spring boot app
+    build: FileserverBack
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - MONGO_HOST=mongo_db
+    restart: on-failure
+    healthcheck:
+      test: curl -m 5 --silent --fail --request GET http://localhost:8080/actuator/health | jq --exit-status -n 'inputs | if has("status") then .status=="UP" else false end' > /dev/null || exit 1
+      interval: 10s
+      timeout: 2s
+      retries: 10
+    networks:
+      - file-server-net
+    depends_on:
+      - mongo_db
+  frontend: #name file-app 
+    build:
+      context: file-app
+      args:
+        PROFILE: prod
+    ports:
+      - "4200:80"
+    restart: on-failure
+    networks:
+      - file-server-net
+    depends_on:
+      - backend
+# networks:
+#   file-server-net:
+#     name: file-server-test
+#     external: true
+networks:
+  file-server-net:
+    driver: bridge
