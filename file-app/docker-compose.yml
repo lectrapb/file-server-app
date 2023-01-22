@@ -2,17 +2,21 @@ version: '3.7' # specify docker-compose version
 
 services:
  frontend: #name front end app0
-    build: 
+    container_name: frontend-file
+    build:
       context: .
       args:
         PROFILE: prod
+    hostname:  frontend-file
     ports:
       - "4200:80"
+    environment:
+      - API_URL=http://localhost:8080 #Set url backend api
     restart: on-failure
     networks:
       - file-server-net
 # networks:
-#   login-token-net:
+#   file-server-net:
 #     driver: bridge
 networks:
   file-server-net:
