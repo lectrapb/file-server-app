@@ -26,7 +26,7 @@ import static org.springframework.data.mongodb.core.query.Query.query;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class DownloadFileController {
 
     private final DownloadFileUseCase useCase;

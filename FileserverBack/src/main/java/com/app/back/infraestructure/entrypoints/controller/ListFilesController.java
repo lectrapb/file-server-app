@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class ListFilesController {
 
     private final ListFilesUseCase useCase;

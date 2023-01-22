@@ -18,7 +18,7 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class PlayVideoController {
 
     private final PlayVideoUseCase useCase;

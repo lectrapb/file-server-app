@@ -20,7 +20,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class UploadFileController {
 
     private final UploadFileUseCase uploadFileUseCase;
