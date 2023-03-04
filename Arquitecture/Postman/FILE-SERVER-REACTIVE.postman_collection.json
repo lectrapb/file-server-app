@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "402f48c7-e247-44c9-8a42-fda9d46a5e29",
+		"name": "FILE-SERVER-REACTIVE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8026786"
+	},
+	"item": [
+		{
+			"name": "upload-file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/ingeniero/Descargas/BURN-E.mp4"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/multipart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"multipart"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "UPLOAD-FILE BurnE",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/ingeniero/Descargas/PERMISOS BASICOS.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/multipart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"multipart"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"62dc8e9e9303f9553ef251f5\"\n}"
+				}
+			]
+		},
+		{
+			"name": "download-file",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/download?filename=emojisky.com-170386.png",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"download"
+					],
+					"query": [
+						{
+							"key": "filename",
+							"value": "emojisky.com-170386.png"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-file",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/delete?name-file=Bancolombiaissuigabc-dev.cer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "name-file",
+							"value": "Bancolombiaissuigabc-dev.cer"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list-files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/listfiles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"listfiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/preview",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/preview?filename=emojisky.com-170386.png",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"preview"
+					],
+					"query": [
+						{
+							"key": "filename",
+							"value": "emojisky.com-170386.png"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
