@@ -6,6 +6,7 @@ import { ModalFileService } from 'src/app/services/modal-file.service';
 import { FileService } from '../../services/file.service';
 import Swal from 'sweetalert2';
 import { PlayVideoService } from 'src/app/services/play-video.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,26 +16,26 @@ import { PlayVideoService } from 'src/app/services/play-video.service';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
-  listFiles: FileStorage[] = []; 
+  listFiles: FileStorage[] = [];
   loading: boolean = true;
   public fileSubs!: Subscription;
   public videoSubs!: Subscription;
   public videoName: string = 'close';
 
   constructor(private fileService: FileService,
-              public modalFile: ModalFileService, 
+              public modalFile: ModalFileService,
               private playVideo:PlayVideoService) { }
-  
+
 
   ngOnInit(): void {
 
     this.videoSubs = this.playVideo.notificationClose
     .subscribe(command =>{
-      this.videoName = command;  
+      this.videoName = command;
     });
 
     this.loadFiles();
-  
+
     this.fileSubs = this.modalFile.newFile
     .pipe(
       delay(10)
@@ -42,7 +43,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     .subscribe(fileSave =>{
        this.listFiles.push(fileSave);
     });
-    
+
   }
 
   ngOnDestroy(): void {
@@ -73,34 +74,34 @@ export class DashboardComponent implements OnInit, OnDestroy {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-          
+
           this.fileService.deleteFile(fileS)
           .subscribe(resp => {
-                 
+
             Swal.fire('Deleted!',
               `Your file ${fileS.name} has been deleted.`,
               'success'
               );
               this.loadFiles();
           });
-        
+
       }
     });
 
-  
-  }
 
+  }
 
   openModal(filename:string):void {
 
-    this.videoName = filename;   
+    this.videoName = filename;
     this.playVideo.openModal();
   }
 
   previewFiles(imageName: string ): any{
       let imageP: string = '';
-      imageP = `http://localhost:8080/api/preview?filename=${imageName}`;
-    
+      const url = environment.base_url
+      imageP = `${url}/preview?filename=${imageName}`;
+
       return imageP;
   }
 

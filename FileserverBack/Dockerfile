@@ -6,6 +6,13 @@ RUN  gradle build -x test --no-daemon
 
 #Package stage
 FROM openjdk:17.0.1-jdk-slim
+#Health check tools
+RUN apt-get update && apt-get install -y \
+curl
+RUN apt-get update && apt-get install -y \
+jq
+CMD /bin/bash
+#End health check tools
 ARG JAR_NAME="FileserverBack-1.0.0"
 WORKDIR /home/gradle/src
 EXPOSE ${HTTP_PORT}
